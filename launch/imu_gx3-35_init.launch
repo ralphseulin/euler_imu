@@ -1,0 +1,8 @@
+<!-- Launch file to start imu + publish raw data & pose + convert quaternions to euler angles  -->
+<launch>
+
+    <!-- starts python script to initiate the IMU  -->
+	<node pkg="euler_imu" name="init_imu" type="init3_imu.py" required="true">
+	</node>
+
+</launch>

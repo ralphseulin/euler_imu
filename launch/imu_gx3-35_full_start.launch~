@@ -1,0 +1,15 @@
+<!-- Launch file to start imu + publish raw data & pose + convert quaternions to euler angles  -->
+<launch>
+
+    <!-- starts python script to initiate the IMU  -->
+	<node pkg="euler_imu" name="init_imu" type="init2_imu.py" required="true">
+	</node>
+  	
+    <!-- launch microstrain_3dm_gx3_35 driver to publish raw data & pose -->
+    <include file="$(find microstrain_3dm_gx3_35)/launch/imu.launch" />
+
+    <!-- starts python script to convert quaternions to euler angles  -->
+	<node pkg="euler_imu" name="euler2imu" type="quaternion2euler.py">
+	</node>
+
+</launch>
